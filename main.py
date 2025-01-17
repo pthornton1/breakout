@@ -17,10 +17,6 @@ screen.listen()
 screen.tracer(0)
 
 
-# Things to do:
-# Detect collision with blocks AND BOUNCE BALL
-# implement game over sequence properly
-
 # CREATE ON SCREEN ELEMENTS
 paddle = Paddle()
 ball = Ball()
@@ -63,10 +59,11 @@ while not game_over:
         ball.reset_position()
     
     # Check if user out of lives or no more blocks
-    if scoreboard.lives == 0 or scoreboard.score == 100:
+    if scoreboard.lives == 0 or scoreboard.score == 44:
+        for block in blocks:
+            block.remove()
         scoreboard.game_over()
         game_over = True
-    
     screen.update()
 
 screen.exitonclick()

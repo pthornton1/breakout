@@ -37,6 +37,6 @@ class Scoreboard(Turtle):
     def game_over(self):
         self.goto(0,0)
         if self.lives == 0:
-            self.write("Game Over: Out of Lives!", align=ALIGNMENT, font=FONT)
+            self.write("Game Over", align=ALIGNMENT, font=FONT)
         else:
-            self.write("Game Over: You win", align=ALIGNMENT, font=FONT)
+            self.write("Game Over", align=ALIGNMENT, font=FONT)
