@@ -1,25 +1,22 @@
 from turtle import Turtle
-STARTING_POSITION = {
-    "right":(350, 0),
-    "left":(-350, 0)
-}
+
+STARTING_POSITION = (0,-250)
 PADDLE_COLOUR = "White"
 PADDLE_SIZE = 5
 PADDLE_SHAPE = "square"
 
 class Paddle(Turtle):
     
-    def __init__(self, paddle_side="right"):
+    def __init__(self):
         super().__init__()
         self.shape(PADDLE_SHAPE)
         self.turtlesize(stretch_len=PADDLE_SIZE)
         self.penup()
         self.color(PADDLE_COLOUR)
-        self.left(90)
-        self.goto(STARTING_POSITION[paddle_side])
+        self.goto(STARTING_POSITION)
         
-    def up(self):
+    def right(self):
         self.forward(20)
         
-    def down(self):
+    def left(self):
         self.backward(20)

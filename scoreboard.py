@@ -14,25 +14,29 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.penup()   
         
-        self.l_score = 0
-        self.r_score = 0
+        self.score = 0
+        self.lives = 4
         self.write_score()
         
     def write_score(self):
         self.clear()
         self.goto(L_POSITION)
-        self.write(self.l_score, align=ALIGNMENT, font=FONT) 
+        self.write(self.lives, align=ALIGNMENT, font=FONT) 
         self.goto(R_POSITION)
-        self.write(self.r_score, align=ALIGNMENT, font=FONT) 
+        self.write(self.score, align=ALIGNMENT, font=FONT) 
         
-    def score(self,player):
-        
-        if player == "left":
-            self.l_score += 1
-        else:
-            self.r_score += 1
-            
+    def add_score(self):
+        self.score += 1
         self.write_score()
         
               
-    
+    def lose_life(self):
+        self.lives -= 1
+        self.write_score()
+        
+    def game_over(self):
+        self.goto(0,0)
+        if self.lives == 0:
+            self.write("Game Over: Out of Lives!", align=ALIGNMENT, font=FONT)
+        else:
+            self.write("Game Over: You win", align=ALIGNMENT, font=FONT)
